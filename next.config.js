@@ -8,7 +8,7 @@ const nextConfig = {
     env: {
         
     },
-    output: "export",
+    output: "standalone",
     images : { unoptimized: true },
 }
 
