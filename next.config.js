@@ -8,6 +8,7 @@ const nextConfig = {
     env: {
         
     },
+    output: "export",
     images : { unoptimized: true },
 }
 
