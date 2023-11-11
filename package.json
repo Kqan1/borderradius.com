@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "dbmigrate": "npx prisma migrate dev",
-    "dbgenerate": "npx prisma generate"
+    "dbgenerate": "npx prisma generate",
+    "dbseed": "npx prisma db seed"
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
@@ -20,15 +21,16 @@
     "@types/bcryptjs": "^2.4.5",
     "base-64": "^1.0.0",
     "bcrypt": "^5.1.1",
+    "bcryptjs-react": "^2.4.6",
     "dotenv": "^16.3.1",
     "gsap": "^3.12.2",
-    "next": "^13.5.5",
+    "next": "^14.0.1",
     "next-auth": "^4.24.4",
     "next-themes": "^0.2.1",
     "node-fetch": "^3.3.2",
     "prisma": "^5.5.2",
-    "react": "^18",
-    "react-dom": "^18",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "styled-components": "^6.1.0",
     "swr": "^2.2.4",
     "zod": "^3.22.4"
@@ -43,7 +45,7 @@
     "bcryptjs": "^2.4.3",
     "cypress": "^13.3.3",
     "eslint": "^8",
-    "eslint-config-next": "13.5.6",
+    "eslint-config-next": "^14.0.1",
     "postcss": "^8",
     "tailwindcss": "^3",
     "tsx": "^3.14.0",

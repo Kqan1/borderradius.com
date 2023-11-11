@@ -15,8 +15,7 @@ model User {
   name         String   @unique
   email        String   @unique
   password     String
-  phoneNumber  Int      @unique @default(0)
-  ProfilePhoto String?
+  profilePhoto String?  @db.LongText
   role         UserRole @default(USER)
   createdAt    DateTime @default(now())
   updatedAt    DateTime @default(now()) @updatedAt

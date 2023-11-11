@@ -1,6 +1,6 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { User } from "@/app/User";
+import Upload from "@/components/header/Upload";
 
 export default async function Home() {    
 
@@ -10,9 +10,8 @@ export default async function Home() {
         <main>
             Page.tsx
             <h2>Server Session</h2>
-            <pre>{JSON.stringify(session)}</pre>
-            <h2>Client Session</h2>
-            <User />
+            <pre>{ JSON.stringify(session) }</pre>
+            <Upload />
         </main>
     );
 }

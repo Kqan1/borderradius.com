@@ -60,9 +60,15 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children, }: { children: React.ReactNode; }) {
+
+    let h: string = "";
+    if (process.env.NODE_ENV === 'development') {
+        h = " h-[500vh]";
+    };
+
     return (
         <html lang="en" className="antialiased">
-            <body className={`${inter.className} antialiased bg-white dark:bg-slate-900 min-h-screen`}>
+            <body className={`${inter.className} antialiased bg-white dark:bg-slate-900${h} w-screen overflow-x-hidden light`}>
                 <GlobalContextProvider>
                     <Header />
                     {children}
@@ -71,4 +77,4 @@ export default function RootLayout({ children, }: { children: React.ReactNode; }
             </body>
         </html>
     );
-}
+};

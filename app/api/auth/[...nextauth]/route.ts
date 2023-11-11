@@ -1,9 +1,16 @@
 import { prisma } from "@/lib/prisma";
-import { compare } from "bcrypt";
+import { compare } from "bcryptjs-react";
 import NextAuth, { type NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 export const authOptions: NextAuthOptions = {
+    pages: {
+        // signIn: "/login",
+        // signOut: "",
+        // error: "",
+        // verifyRequest: "",
+        // newUser: "",
+    },
     session: {
         strategy: "jwt",
     },
@@ -47,6 +54,7 @@ export const authOptions: NextAuthOptions = {
                     email: pUser.email,
                     name: pUser.name,
                     role: pUser.role,
+                    // profilePhoto: pUser.profilePhoto
                 };
             },
         }),
@@ -60,6 +68,7 @@ export const authOptions: NextAuthOptions = {
                     ...session.user,
                     id: token.id,
                     role: token.role,
+                    // profilePhoto: token.profilePhoto
                 },
             };
         },
@@ -71,6 +80,7 @@ export const authOptions: NextAuthOptions = {
                     ...token,
                     id: u.id,
                     role: u.role,
+                    // profilePhoto: u.profilePhoto
                 };
             }
             return token;

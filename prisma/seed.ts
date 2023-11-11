@@ -12,8 +12,7 @@ async function main() {
             email: "test@user.com",
             name: "UserAccount",
             password,
-            phoneNumber: 0,
-            ProfilePhoto: "pp",
+            profilePhoto: "pp",
         },
     });
     const UserADMIN = await prisma.user.upsert({
@@ -23,8 +22,7 @@ async function main() {
             email: "test@admin.com",
             name: "AdminAccount",
             password,
-            phoneNumber: 0,
-            ProfilePhoto: "pp",
+            profilePhoto: "pp",
         },
     });
     console.log("USER"+ { userUSER }, "ADMİN"+ { UserADMIN });
