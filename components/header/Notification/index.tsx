@@ -4,10 +4,10 @@ export default function Notification() {
     if (notifications.length === 0) {
         return (
             <div className="h-full w-full flex items-center justify-center">
-                Bildiriminiz Bulunmamakta
+                You don&apos;t have any notification 
             </div>
         ); 
-    }
+    };
 
     return (
         <div className="h-full w-full">
@@ -19,4 +19,4 @@ export default function Notification() {
             ))}
         </div>
     );
-}
+};

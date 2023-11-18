@@ -11,14 +11,28 @@ datasource db {
 }
 
 model User {
-  id           String   @id @default(cuid())
-  name         String   @unique
-  email        String   @unique
-  password     String
-  profilePhoto String?  @db.LongText
-  role         UserRole @default(USER)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @default(now()) @updatedAt
+  id            String    @id @default(cuid())
+  name          String    @unique
+  emailVerified DateTime?
+  email         String    @unique
+  password      String
+  bio           String?   @db.Text
+  profilePhoto  String?   @db.LongText
+  role          UserRole  @default(USER)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @default(now()) @updatedAt
+
+  followedBy Follows[] @relation("following")
+  following  Follows[] @relation("follower")
+}
+
+model Follows {
+  follower    User   @relation("follower", fields: [followerId], references: [id])
+  followerId  String
+  following   User   @relation("following", fields: [followingId], references: [id])
+  followingId String
+
+  @@id([followerId, followingId])
 }
 
 enum UserRole {

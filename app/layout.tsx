@@ -67,8 +67,8 @@ export default function RootLayout({ children, }: { children: React.ReactNode; }
     };
 
     return (
-        <html lang="en" className="antialiased">
-            <body className={`${inter.className} antialiased bg-white dark:bg-slate-900${h} w-screen overflow-x-hidden light`}>
+        <html lang="en">
+            <body className={`${inter.className} antialiased bg-white dark:bg-slate-900${h} w-screen overflow-x-hidden`}>
                 <GlobalContextProvider>
                     <Header />
                     {children}

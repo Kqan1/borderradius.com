@@ -9,12 +9,9 @@ const config: Config = {
     ],
     theme: {
         extend: {
-            boxShadow: {
-                glass: "0 4px 30px rgba(0, 0, 0, 0.1)",
-            },
-            backgroundColor: {
-                glass: "rgba(255, 255, 255, .22)",
-            },
+            fontSize: {
+                login: ["15rem", "15rem"],
+            }
         },
     },
     plugins: [],

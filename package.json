@@ -9,7 +9,8 @@
     "lint": "next lint",
     "dbmigrate": "npx prisma migrate dev",
     "dbgenerate": "npx prisma generate",
-    "dbseed": "npx prisma db seed"
+    "dbseed": "npx prisma db seed",
+    "studio": "npx prisma studio"
   },
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
@@ -22,6 +23,8 @@
     "base-64": "^1.0.0",
     "bcrypt": "^5.1.1",
     "bcryptjs-react": "^2.4.6",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
     "dotenv": "^16.3.1",
     "gsap": "^3.12.2",
     "next": "^14.0.1",
@@ -33,6 +36,7 @@
     "react-dom": "^18.2.0",
     "styled-components": "^6.1.0",
     "swr": "^2.2.4",
+    "tailwind-merge": "^2.0.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {

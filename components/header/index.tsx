@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useRef, MutableRefObject } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Profile from "@/components/header/Profile";
 import ThemeSwitcher from "@/components/header/ThemeSwitcher";
@@ -9,6 +9,7 @@ import NavLink from "@/components/header/Navlink";
 export default function RootHeader() {
     //! Set scrollPosition
     const [scrollPosition, setScrollPosition] = useState(0);
+    
     //! Set classNames
     const [lightBg, setLightBg] = useState("60");
     const [darkBg, setDarkBg] = useState("transparent");
@@ -29,7 +30,7 @@ export default function RootHeader() {
                     setLightBg("95");
                     setDarkBg("slate-900/70");
                 }
-            }
+            };
         };
     
         window.addEventListener("scroll", scrollHandler, true);
@@ -66,6 +67,5 @@ export default function RootHeader() {
             <p className="fixed top-10 left-4 hidden xl:max-2xl:block">xl</p>
             <p className="fixed top-10 left-4 hidden 2xl:block">2xl</p>
         </header>
-        
     );
 };

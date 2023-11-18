@@ -1,11 +1,11 @@
-import { prisma } from "@/lib/prisma";
+import { db } from "@/lib/db";
 import { compare } from "bcryptjs-react";
 import NextAuth, { type NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
 export const authOptions: NextAuthOptions = {
     pages: {
-        // signIn: "/login",
+        signIn: "/login",
         // signOut: "",
         // error: "",
         // verifyRequest: "",
@@ -30,19 +30,19 @@ export const authOptions: NextAuthOptions = {
                     return null;
                 }
 
-                const pUser = await prisma.user.findUnique({
+                const dbUser = await db.user.findUnique({
                     where: {
                         email: credentials.email,
                     },
                 });
 
-                if (!pUser) {
+                if (!dbUser) {
                     return null;
                 }
 
                 const isPasswordValid = await compare(
                     credentials.password,
-                    pUser.password
+                    dbUser.password
                 );
 
                 if (!isPasswordValid) {
@@ -50,18 +50,19 @@ export const authOptions: NextAuthOptions = {
                 }
 
                 return {
-                    id: pUser.id + "",
-                    email: pUser.email,
-                    name: pUser.name,
-                    role: pUser.role,
-                    // profilePhoto: pUser.profilePhoto
+                    id: dbUser.id + "",
+                    email: dbUser.email,
+                    name: dbUser.name,
+                    role: dbUser.role,
+                    // profilePhoto: dbUser.profilePhoto
+                    createdAt: dbUser.createdAt,
+                    updatedAt: dbUser.updatedAt
                 };
             },
         }),
     ],
     callbacks: {
         session: ({ session, token }) => {
-            // console.log("Session Callback", { session, token });
             return {
                 ...session,
                 user: {
@@ -69,11 +70,12 @@ export const authOptions: NextAuthOptions = {
                     id: token.id,
                     role: token.role,
                     // profilePhoto: token.profilePhoto
+                    createdAt: token.createdAt,
+                    updatedAt: token.updatedAt
                 },
             };
         },
         jwt: ({ token, user }) => {
-            // console.log("JWT Callback", { token, user });
             if (user) {
                 const u = user as unknown as any;
                 return {
@@ -81,6 +83,8 @@ export const authOptions: NextAuthOptions = {
                     id: u.id,
                     role: u.role,
                     // profilePhoto: u.profilePhoto
+                    createdAt: u.createdAt,
+                    updatedAt: u.updatedAt
                 };
             }
             return token;
