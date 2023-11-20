@@ -4,4 +4,4 @@ export const config = { matcher: [
     "/settings",
     "/messages",
     "/notifications",
-]}
+]};

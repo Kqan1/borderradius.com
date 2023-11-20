@@ -1,16 +1,16 @@
-import { LoginForm as Form } from "@/app/(auth)/login/form";
+import { LoginForm as Form } from "@/components/forms/login";
 
 export default function login() {
 
     return (
-        <main className="h-[calc(100vh-8rem)] w-full flex items-center">
-            <div className="h-full w-8/12 p-4 flex items-center justify-center">
-                <span className="text-login font-black font-mono">
-                    LOG IN🤗
-                </span>
-            </div>
-            <div className="h-full w-4/12 p-4 flex items-center justify-center">
-                <Form />
+        <main className="h-[calc(100vh-7.5rem)] w-full flex items-center justify-center">
+            <div className="flex w-7/12 p-4 h-4/6 border border-slate-900/40 dark:border-slate-50/10 ">
+                <div className="w-5/12">
+                    <Form />
+                </div>
+                <div className="w-7/12">
+                    test
+                </div>
             </div>
         </main>
     );
