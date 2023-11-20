@@ -12,12 +12,13 @@ datasource db {
 
 model User {
   id            String    @id @default(cuid())
-  name          String    @unique
+  username      String    @unique
   emailVerified DateTime?
   email         String    @unique
   password      String
-  bio           String?   @db.Text
-  profilePhoto  String?   @db.LongText
+  bio           String    @default("null") @db.Text
+  pp            String    @default("/pp.svg")
+  banner        String    @default("/banner.jpg")
   role          UserRole  @default(USER)
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @default(now()) @updatedAt

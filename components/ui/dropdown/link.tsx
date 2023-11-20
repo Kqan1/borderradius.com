@@ -16,12 +16,12 @@ export const DropdownLink: FC<Props> = ({ text, href, icon, onClick, ...rest }: 
 
     // custom codes
     const { data: session } = useSession();
-    const session_name = session?.user?.name;
+    const session_username = session?.user?.username;
 
     let incomingText;
     switch (text) {
-        case "...session_name":
-            incomingText = session_name
+        case "...session_username":
+            incomingText = session_username
             break;
     
         default:

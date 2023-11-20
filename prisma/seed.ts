@@ -3,16 +3,19 @@ import { hash } from "bcrypt";
 
 const prisma = new PrismaClient();
 
-async function main() {
+async function seed() {
     const password = await hash("test", 12);
     const userUSER = await prisma.user.upsert({
         where: { email: "test@user.com" },
         update: {},
         create: {
             email: "test@user.com",
-            name: "UserAccount",
+            username: "UserAccount",
             password,
-            profilePhoto: "pp",
+            pp: "/pp.svg",
+            banner: "banner user",
+            bio: "bio user",
+            role: "USER"
         },
     });
     const UserADMIN = await prisma.user.upsert({
@@ -20,14 +23,17 @@ async function main() {
         update: {},
         create: {
             email: "test@admin.com",
-            name: "AdminAccount",
+            username: "AdminAccount",
             password,
-            profilePhoto: "pp",
+            pp: "/hamza.jpg",
+            banner: "banner admin",
+            bio: "bio admin",
+            role: "ADMIN"
         },
     });
     console.log("USER"+ { userUSER }, "ADMİN"+ { UserADMIN });
 }
-main()
+seed()
     .then(() => prisma.$disconnect())
     .catch(async (e) => {
         console.error(e);

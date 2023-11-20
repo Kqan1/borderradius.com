@@ -6,10 +6,6 @@ import CredentialsProvider from "next-auth/providers/credentials";
 export const authOptions: NextAuthOptions = {
     pages: {
         signIn: "/login",
-        // signOut: "",
-        // error: "",
-        // verifyRequest: "",
-        // newUser: "",
     },
     session: {
         strategy: "jwt",
@@ -52,9 +48,10 @@ export const authOptions: NextAuthOptions = {
                 return {
                     id: dbUser.id + "",
                     email: dbUser.email,
-                    name: dbUser.name,
-                    role: dbUser.role,
-                    // profilePhoto: dbUser.profilePhoto
+                    username: dbUser.username,
+                    role: dbUser.role || "USER",
+                    pp: dbUser.pp || '/pp.svg',
+                    banner: dbUser.banner,
                     createdAt: dbUser.createdAt,
                     updatedAt: dbUser.updatedAt
                 };
@@ -68,8 +65,10 @@ export const authOptions: NextAuthOptions = {
                 user: {
                     ...session.user,
                     id: token.id,
+                    username: token.username,
                     role: token.role,
-                    // profilePhoto: token.profilePhoto
+                    pp: token.pp,
+                    banner: token.banner,
                     createdAt: token.createdAt,
                     updatedAt: token.updatedAt
                 },
@@ -81,15 +80,17 @@ export const authOptions: NextAuthOptions = {
                 return {
                     ...token,
                     id: u.id,
+                    username: u.username,
                     role: u.role,
-                    // profilePhoto: u.profilePhoto
+                    pp: u.pp,
+                    banner: u.banner,
                     createdAt: u.createdAt,
                     updatedAt: u.updatedAt
                 };
             }
             return token;
         },
-    },
+    }
 };
 
 const handler = NextAuth(authOptions);

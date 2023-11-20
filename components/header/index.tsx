@@ -60,12 +60,6 @@ export default function RootHeader() {
                     <Profile />
                 </div>
             </div>
-            {/* For Dev */}
-            <p className="fixed top-10 left-4 block md:hidden">sm</p>
-            <p className="fixed top-10 left-4 hidden md:max-lg:block">md</p>
-            <p className="fixed top-10 left-4 hidden lg:max-xl:block">lg</p>
-            <p className="fixed top-10 left-4 hidden xl:max-2xl:block">xl</p>
-            <p className="fixed top-10 left-4 hidden 2xl:block">2xl</p>
         </header>
     );
 };

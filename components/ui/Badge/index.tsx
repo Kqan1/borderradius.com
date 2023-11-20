@@ -1,5 +1,5 @@
 type Props = {
-    role: string;
+    role: string | undefined;
 };
 
 export default function Badge({ role }: Props) {
