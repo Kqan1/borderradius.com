@@ -9,9 +9,7 @@ const config: Config = {
     ],
     theme: {
         extend: {
-            fontSize: {
-                login: ["15rem", "15rem"],
-            }
+            
         },
     },
     plugins: [],

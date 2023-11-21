@@ -4,6 +4,9 @@ import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+
 export const LoginForm = () => {
     const router = useRouter();
 
@@ -34,34 +37,36 @@ export const LoginForm = () => {
     };
 
     return (
-        <form onSubmit={onSubmit} className="flex flex-col justify-center h-full w-full px-8 space-y-8">
-            <div className="relative">
-                <input
-                    type="email"
-                    onChange={(e) => setEmail(e.target.value)}
-                    value={email}
-                    placeholder=""
-                    required
-                    className="rounded w-full h-8 placeholder-shown:"
-                />
-                <span className="absolute left-2 top-1/2 -translate-y-1/2 pointer-events-none">Email</span>
-            </div>
+        <form
+            onSubmit={onSubmit}
+            className="flex flex-col justify-center h-full w-full px-8 space-y-3"
+        >
+            <Input 
+                variant={"default"} 
+                Size={"full"} 
+                type="email"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+                placeholder=""
+                required
+                LabelText="email"
+            />
 
-            <div className="relative">
-                <input
-                    type="password"
-                    onChange={(e) => setPassword(e.target.value)}
-                    value={password}
-                    placeholder=""
-                    required
-                    className="rounded w-full h-8 peer"
-                />
-                <span className="absolute left-2 top-1/2 -translate-y-1/2 pointer-events-none peer-placeholder-shown:translate-x-1/2">password</span>
-            </div>
+            <Input 
+                variant={"default"} 
+                Size={"full"} 
+                type="password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                placeholder=""
+                required
+                autoComplete=""
+                LabelText="password"
+            />
 
-            <button type="submit">submit</button>
-            <button>Log in with Google</button>
-            <button>Log in with Github</button>
+            <Button type="submit">Submit</Button>
+            <Button variant={"destructive"}>Log in with Google</Button>
+            <Button variant={"subtle"}>Log in with Google</Button>
         </form>
     );
 };
