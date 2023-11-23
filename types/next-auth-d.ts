@@ -27,7 +27,7 @@ declare module 'next-auth' {
         createdAt: Date;
         updatedAt: Date;
     }
-}
+};
 declare module "next-auth/jwt" {
     interface JWT {
         username: string;
@@ -41,4 +41,4 @@ declare module "next-auth/jwt" {
         createdAt: Date;
         updatedAt: Date;
     }
-}
+};

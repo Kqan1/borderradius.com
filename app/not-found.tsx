@@ -2,7 +2,7 @@
 import { usePathname } from "next/navigation";
 import styled, { keyframes } from "styled-components";
 
-function NotFound() {
+export default function NotFound() {
     const currentPath = usePathname();
 
     let text = `Your search ${currentPath} is not found `;
@@ -23,14 +23,12 @@ function NotFound() {
     const TypeCursor = styled.span`animation: ${TypeCursorKeyframes} 1.5s steps(2, start) infinite`;
 
     return (
-        <div className="font-mono h-[calc(100vh-4rem)] pointer-events-none -translate-y-16 flex flex-col items-center justify-center text-slate-700 dark:text-slate-300">
+        <div className="font-mono h-[calc(100vh-7.5rem)] select-none pointer-events-none -translate-y-16 flex flex-col items-center justify-center text-zinc-700 dark:text-zinc-200">
             <h1 className="text-9xl">404</h1>
             <NotFoundText className="leading-5 relative whitespace-nowrap overflow-hidden">
                 {text}
-                <TypeCursor className="absolute right-0 h-full w-0.5 bg-slate-700 dark:bg-slate-300">test</TypeCursor>
+                <TypeCursor className="absolute right-0 h-full w-0.5 bg-zinc-700 dark:bg-zinc-300">test</TypeCursor>
             </NotFoundText>
         </div>
     );
-}
-
-export default NotFound;
+};

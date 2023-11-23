@@ -34,4 +34,4 @@ export function RegisterForm() {
             <button type="submit">submit</button>
         </form>
     );
-}
+};

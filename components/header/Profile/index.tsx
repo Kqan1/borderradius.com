@@ -10,7 +10,7 @@ export default function HeaderProfile() {
 
     //! Get Session Data
     const { data: session } = useSession();
-    const username = session?.user?.username;
+    const username = session?.user?.username ?? "Log in";
     const role = session?.user?.role;
     const pp = session?.user?.pp ?? "/pp.svg";
     
@@ -26,10 +26,10 @@ export default function HeaderProfile() {
                     }
                 }}
             >
-                <div className="h-10 relative aspect-square rounded-full flex items-center justify-center overflow-hidden border border-slate-900/30 dark:border-slate-50/30">
+                <div className="h-10 relative aspect-square rounded-full flex items-center justify-center overflow-hidden border border-zinc-900/30 dark:border-zinc-50/30">
                     <Image
-                        src={`${pp}`}
-                        alt={`${username}`}
+                        src={pp}
+                        alt={username}
                         fill
                     />
                 </div>
@@ -38,7 +38,7 @@ export default function HeaderProfile() {
                 </div>
             </div>
             <div
-                className="grid place-items-center lg:hidden fill-slate-700 dark:fill-slate-200 cursor-pointer"
+                className="grid place-items-center lg:hidden fill-zinc-700 dark:fill-zinc-200 cursor-pointer"
                 onClick={()=>setHeaderDropdownOpen(!headerDropdownOpen)}
             >
                 <svg width="24" height="24" aria-hidden="true"><path d="M12 6v.01M12 12v.01M12 18v.01M12 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></svg>
@@ -82,7 +82,7 @@ export default function HeaderProfile() {
                             onClick: () => signOut()
                         }
                     ]
-                ]} text={""}            
+                ]} text={""}          
             />}
         </div>
     );

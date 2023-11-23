@@ -18,15 +18,15 @@
 //             <div
 //                 className="flex flex-col justify-center fixed pt-1 rounded top-0 left-0 px-6 pb-52 w-screen h-screen
 //                 lg:h-auto lg:w-60 lg:left-auto lg:right-2 lg:top-[4.5rem] xl:top-14 xl:-left-2 lg:border-solid lg:justify-start lg:absolute lg:p-0 lg:py-0
-//                 border-2 border-slate-300 bg-white text-slate-500
-//                 dark:text-slate-400 dark:bg-slate-800 dark:border-slate-700 border-none">
+//                 border-2 border-zinc-300 bg-white text-zinc-500
+//                 dark:text-zinc-400 dark:bg-zinc-800 dark:border-zinc-700 border-none">
 //                 <div
 //                     className="fixed lg:hidden cursor-pointer top-8 right-8"
 //                     onClick={() => setHeaderDropdownOpen(false)}
 //                 >
-//                     <svg className="h-12 fill-slate-600 dark:fill-slate-500"viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" /></svg>
+//                     <svg className="h-12 fill-zinc-600 dark:fill-zinc-500"viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" /></svg>
 //                 </div>
-//                 <div className="divide-none divide-y-2 divide-slate-300 lg:divide-solid dark:divide-slate-700">
+//                 <div className="divide-none divide-y-2 divide-zinc-300 lg:divide-solid dark:divide-zinc-700">
 //                     {links.map((linkGroup: any, index: any) => (
 //                         <div className="flex flex-col p-0 lg:py-1" key={index}>
 //                             {linkGroup.map((link: LinkProps, linkIndex: number) => (
@@ -60,7 +60,7 @@ import { useSession } from "next-auth/react";
 import { cn } from "@/lib/utils";
 
 const DropdownVariants = cva(
-    "flex flex-col justify-center fixed pt-1 rounded top-0 left-0 px-6 pb-52 w-screen h-screen lg:h-auto lg:w-60 lg:left-auto lg:right-2 lg:top-[4.5rem] xl:top-14 xl:-left-2 lg:border-solid lg:justify-start lg:absolute lg:p-0 lg:py-0 border-2 border-slate-300 bg-white text-slate-500 dark:text-slate-400 dark:bg-slate-800 dark:border-slate-700 border-none",
+    "flex flex-col justify-center fixed pt-1 rounded top-0 left-0 px-6 pb-52 w-screen h-screen lg:h-auto lg:w-60 lg:left-auto lg:right-2 lg:top-[4.5rem] xl:top-14 xl:-left-2 lg:border-solid lg:justify-start lg:absolute lg:p-0 lg:py-0 border-2 border-zinc-300 bg-white text-zinc-500 dark:text-zinc-400 dark:bg-zinc-800 dark:border-zinc-500 border-none",
     {
         variants: {
             variant: {
@@ -114,9 +114,9 @@ const Dropdown = React.forwardRef<HTMLAnchorElement, DropdownProps>(
         return (
             <div className={cn(DropdownVariants({ variant, size }))}>
                 <div className="fixed lg:hidden cursor-pointer top-8 right-8">
-                    <svg className="h-12 fill-slate-600 dark:fill-slate-500" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" /></svg>
+                    <svg className="h-12 fill-zinc-600 dark:fill-zinc-500" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z" /></svg>
                 </div>
-                <div className="divide-none divide-y-2 divide-slate-300 lg:divide-solid dark:divide-slate-700">
+                <div className="divide-none divide-y-2 divide-zinc-300 lg:divide-solid dark:divide-zinc-500">
                     {links.map((linkGroup: any, index: any) => (
                         <div className="flex flex-col p-0 lg:py-1" key={index}>
                             {linkGroup.map((link: DropdownProps, linkIndex: number) => (
@@ -125,7 +125,7 @@ const Dropdown = React.forwardRef<HTMLAnchorElement, DropdownProps>(
                                         href={link.href ?? "/"}
                                         onClick={link.onClick}
                                         ref={ref}
-                                        className="cursor-pointer flex items-center px-0 lg:px-2 py-2 lg:text-base text-3xl text-slate-500 dark:text-slate-300 hover:bg-slate-400/10"
+                                        className="cursor-pointer flex items-center px-0 lg:px-2 py-2 lg:text-base text-3xl text-zinc-500 dark:text-zinc-300 hover:bg-zinc-400/10"
                                         // {...props}
                                     >
                                         <FontAwesomeIcon

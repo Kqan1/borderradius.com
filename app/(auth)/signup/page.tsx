@@ -6,5 +6,5 @@ export default function signup() {
         <div className="h-[calc(100vh-4rem)] flex items-center justify-center">
             <Form />
         </div>
-    )
+    );
 };

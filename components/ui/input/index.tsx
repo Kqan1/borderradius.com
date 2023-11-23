@@ -9,7 +9,7 @@ const inputVariants = cva(
     variants: {
         variant: {
             default:
-                "rounded border-2 outline-none bg-transparent border-slate-900/20 dark:border-slate-50/[0.06]",
+                "rounded border-2 outline-none bg-transparent border-zinc-900/20 dark:border-zinc-50/30",
         },
         Size: {
             default: "w-64 h-10",
@@ -35,7 +35,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                     className={cn(inputVariants({ variant, Size, className }))}
                     {...props}
                 />
-                <label className={"absolute left-2 top-1/2 px-1 pointer-events-none text-slate-700 dark:text-slate-200 bg-white dark:bg-transparent -translate-y-[120%] peer-placeholder-shown:-translate-y-1/3 transition-all"}>{LabelText}</label>
+                <label className={"absolute left-2 top-1/2 px-1 pointer-events-none text-zinc-700 dark:text-zinc-200 bg-white dark:bg-transparent -translate-y-[120%] peer-placeholder-shown:-translate-y-1/3 transition-all"}>{LabelText}</label>
             </div>
         );
     }
