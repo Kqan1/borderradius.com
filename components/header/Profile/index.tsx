@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Badge from "@/components/ui/Badge";
-import Dropdown from "@/components/ui/dropdown";
+import { Dropdown } from "@/components/ui/dropdown";
 import { useGlobalContext } from "@/app/context/store";
 import { faUser, faRightFromBracket, faCircleInfo, faMessage, faGear, faBug } from "@fortawesome/free-solid-svg-icons";
 
@@ -17,7 +17,7 @@ export default function HeaderProfile() {
     return (
         <div className="static xl:relative">
             <div
-                className="cursor-pointer hidden md:flex items-center space-x-2"
+                className="cursor-pointer hidden lg:flex items-center space-x-2"
                 onClick={async () => {
                     if (session === null) {
                         await signIn();
@@ -38,7 +38,7 @@ export default function HeaderProfile() {
                 </div>
             </div>
             <div
-                className="grid place-items-center md:hidden fill-slate-700 dark:fill-slate-200 cursor-pointer"
+                className="grid place-items-center lg:hidden fill-slate-700 dark:fill-slate-200 cursor-pointer"
                 onClick={()=>setHeaderDropdownOpen(!headerDropdownOpen)}
             >
                 <svg width="24" height="24" aria-hidden="true"><path d="M12 6v.01M12 12v.01M12 18v.01M12 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></svg>
@@ -50,7 +50,7 @@ export default function HeaderProfile() {
                         {
                             text: "...session_username",
                             href: "/myaccount",
-                            icon: faUser
+                            icon: faUser,
                         }
                     ],
                     [
@@ -82,7 +82,7 @@ export default function HeaderProfile() {
                             onClick: () => signOut()
                         }
                     ]
-                ]}
+                ]} text={""}            
             />}
         </div>
     );
