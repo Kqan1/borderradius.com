@@ -4,7 +4,7 @@ import "@/app/globals.css";
 import { GlobalContextProvider } from "./context/store";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import ResponsiveMeter from "@/components/responsive";
+import ResponsiveMeter from "@/components/responsiveIndicatorForDev";
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -47,7 +47,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                     {children}
                 </Link>
             );
-        }
+        };
         return (
             <button
                 className={cn(buttonVariants({ variant, size, className }))}
