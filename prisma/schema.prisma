@@ -28,6 +28,8 @@ model User {
 
   followedBy Follows[] @relation("following")
   following  Follows[] @relation("follower")
+
+  Notifications Notifications[]
 }
 
 model Follows {
@@ -37,6 +39,13 @@ model Follows {
   followingId String
 
   @@id([followerId, followingId])
+}
+
+model Notifications {
+  notificationId String  @id
+  User           User?   @relation(fields: [userId], references: [id])
+  userId         String?
+  done           Boolean
 }
 
 enum UserRole {
