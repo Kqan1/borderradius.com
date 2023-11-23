@@ -12,4 +12,8 @@
     body::-webkit-scrollbar {
         @apply w-2
     }
+
+    .active {
+        @apply text-zinc-700 hover:text-zinc-700 dark:text-zinc-200 hover:dark:text-zinc-200
+    }
 }

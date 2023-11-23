@@ -9,7 +9,9 @@ const config: Config = {
     ],
     theme: {
         extend: {
-            
+            backgroundImage: {
+                light: "background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%)"
+            }
         },
     },
     plugins: [],

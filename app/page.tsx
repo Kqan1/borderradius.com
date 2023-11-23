@@ -12,9 +12,9 @@ export default function Home() {
 
     return (
         <main>
-            Page.tsx
-            <h2>Server Session</h2>
-            {JSON.stringify(session)}
+            {/* Page.tsx */}
+            {/* <h2>Server Session</h2> */}
+            {/* {JSON.stringify(session)} */}
         </main>
     );
 };

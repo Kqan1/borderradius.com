@@ -13,9 +13,8 @@ export default function HeaderProfile() {
     const role = session?.user?.role;
     const pp = session?.user?.pp ?? "/pp.svg";
 
-
     const [dropdownOpen, setDropdownOpen] = useState<Boolean>(false);
-    const ref = useRef(null);
+    const ref = useRef<HTMLDivElement>(null);
     useEffect(() => {
         const handleOutsideClick = (e: MouseEvent) => {
             if ( ref.current && !(ref.current as HTMLElement).contains(e.target as Node) ) {
@@ -24,25 +23,16 @@ export default function HeaderProfile() {
         };
 
         window.addEventListener("mousedown", handleOutsideClick);
-
-        return () => {
-            window.removeEventListener("mousedown", handleOutsideClick);
-        };
+        return () => window.removeEventListener("mousedown", handleOutsideClick);
     }, [setDropdownOpen]);
 
     return (
-        <div className="static xl:relative">
+        <>
             <div
-                className="cursor-pointer hidden lg:flex items-center space-x-2"
-                onClick={async () => {
-                    if (session === null) {
-                        await signIn();
-                    } else {
-                        setDropdownOpen(!dropdownOpen);
-                    }
-                }}
+                className="lg:flex items-center hidden h-full space-x-1 cursor-pointer text-zinc-700 dark:text-zinc-200"
+                onClick={async () => {if (session === null) {await signIn()} else {setDropdownOpen(!dropdownOpen)}}}
             >
-                <div className="h-10 relative aspect-square rounded-full flex items-center justify-center overflow-hidden border border-zinc-900/30 dark:border-zinc-50/30">
+                <div className="h-full relative aspect-square rounded-full overflow-hidden border border-zinc-900/30 dark:border-zinc-50/30">
                     <Image
                         src={pp}
                         alt={username}
@@ -53,15 +43,10 @@ export default function HeaderProfile() {
                     {username ?? "Log in"} <Badge role={role} />
                 </div>
             </div>
+
             <div
                 className="grid place-items-center lg:hidden fill-zinc-700 dark:fill-zinc-200 cursor-pointer"
-                onClick={async () => {
-                    if (session === null) {
-                        await signIn();
-                    } else {
-                        setDropdownOpen(!dropdownOpen);
-                    }
-                }}
+                onClick={async () => {if (session === null) {await signIn()} else {setDropdownOpen(!dropdownOpen)}}}
             >
                 {session ? 
                 <svg width="24" height="24" aria-hidden="true"><path d="M12 6v.01M12 12v.01M12 18v.01M12 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></svg>
@@ -111,6 +96,6 @@ export default function HeaderProfile() {
                     ]
                 ]}
             />}
-        </div>
+        </>
     );
 };

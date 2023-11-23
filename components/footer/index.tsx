@@ -6,7 +6,7 @@ export default function RootFooter() {
     const thisYear = date.getFullYear();
 
     return (
-        <div className="p-4 antialiased w-full">
+        <div className="p-4 antialiased w-full absolute bottom-0">
             <div className="md:flex md:justify-around text-center mx-auto max-w-6xl text-sm leading-6 font-semibold text-zinc-700 dark:text-zinc-200">
                 <div className="flex items-center justify-center">
                     <p>&copy; EBA 2023 - {thisYear} All Rights Reserved Powered By &nbsp;
