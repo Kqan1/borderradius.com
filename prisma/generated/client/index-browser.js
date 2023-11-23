@@ -128,8 +128,10 @@ exports.Prisma.FollowsScalarFieldEnum = {
 
 exports.Prisma.NotificationsScalarFieldEnum = {
   notificationId: 'notificationId',
-  userId: 'userId',
-  done: 'done'
+  notificationText: 'notificationText',
+  done: 'done',
+  NotificationDate: 'NotificationDate',
+  userId: 'userId'
 };
 
 exports.Prisma.SortOrder = {
