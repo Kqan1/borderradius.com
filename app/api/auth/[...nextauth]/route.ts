@@ -10,6 +10,7 @@ export const authOptions: NextAuthOptions = {
     session: {
         strategy: "jwt",
     },
+    secret: process.env.NEXTAUTH_SECRET,
     providers: [
         CredentialsProvider({
             name: "Sign in",
@@ -48,7 +49,10 @@ export const authOptions: NextAuthOptions = {
                 return {
                     id: dbUser.id + "",
                     email: dbUser.email,
+                    emailVerified: dbUser.emailVerified,
+                    password: dbUser.password,
                     username: dbUser.username,
+                    bio: dbUser.bio,
                     role: dbUser.role || "USER",
                     pp: dbUser.pp || '/pp.svg',
                     banner: dbUser.banner,
@@ -65,7 +69,10 @@ export const authOptions: NextAuthOptions = {
                 user: {
                     ...session.user,
                     id: token.id,
+                    emailVerified: token.emailVerified,
+                    password: token.password,
                     username: token.username,
+                    bio: token.bio,
                     role: token.role,
                     pp: token.pp,
                     banner: token.banner,
@@ -81,6 +88,9 @@ export const authOptions: NextAuthOptions = {
                     ...token,
                     id: u.id,
                     username: u.username,
+                    emailVerified: u.emailVerified,
+                    bio: u.bio,
+                    password: u.password,
                     role: u.role,
                     pp: u.pp,
                     banner: u.banner,

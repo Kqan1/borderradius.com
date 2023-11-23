@@ -49,7 +49,7 @@ export default function RootHeader() {
             <div className="hidden bg-white/95 dark:bg-slate-900/70"></div>
             <div className="2xl:max-w-[90rem] xl:max-w-6xl px-4 flex items-center justify-between h-full mx-auto">
                 <Link href={"/"} className="relative h-5/6 w-16 lg:w-24" >
-                    <Image src={"/"} alt="Logo" fill />
+                    <Image src={"/logo.svg"} alt="Logo" fill />
                 </Link>
                 <div className="flex items-center space-x-4 font-semibold text-sm text-slate-700 dark:text-slate-200">
                     <nav className="space-x-4 pr-4 border-r border-slate-900/10 dark:border-slate-50/[0.06] lg:flex hidden">
