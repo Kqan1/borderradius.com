@@ -4,4 +4,7 @@ export const config = { matcher: [
     "/settings",
     "/messages",
     "/notifications",
+    /*
+    * Find Not Selector
+    */
 ]};

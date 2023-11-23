@@ -1,9 +1,14 @@
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+"use client"
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
-export default async function Home() {    
+export default function Home() {    
 
-    const session = await getServerSession(authOptions);
+    const { data: session } = useSession();
+    const router = useRouter();
+    if ( session === null ) {
+        router.push("/landing");
+    };
 
     return (
         <main>

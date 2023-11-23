@@ -14,7 +14,7 @@ export default function RootHeader() {
     const [lightBg, setLightBg] = useState("60");
     const [darkBg, setDarkBg] = useState("transparent");
 
-    const headerRef = useRef<HTMLDivElement | null>(null);
+    const headerRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         const scrollHandler = () => {
             if (headerRef.current) {

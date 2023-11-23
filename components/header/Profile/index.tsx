@@ -2,18 +2,34 @@ import Image from "next/image";
 import { signIn, signOut, useSession } from "next-auth/react";
 import Badge from "@/components/ui/Badge";
 import { Dropdown } from "@/components/ui/dropdown";
-import { useGlobalContext } from "@/app/context/store";
 import { faUser, faRightFromBracket, faCircleInfo, faMessage, faGear, faBug } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useRef, useState } from "react";
 
 export default function HeaderProfile() {
-    const { headerDropdownOpen, setHeaderDropdownOpen } = useGlobalContext();
 
     //! Get Session Data
     const { data: session } = useSession();
     const username = session?.user?.username ?? "Log in";
     const role = session?.user?.role;
     const pp = session?.user?.pp ?? "/pp.svg";
-    
+
+
+    const [dropdownOpen, setDropdownOpen] = useState<Boolean>(false);
+    const ref = useRef(null);
+    useEffect(() => {
+        const handleOutsideClick = (e: MouseEvent) => {
+            if ( ref.current && !(ref.current as HTMLElement).contains(e.target as Node) ) {
+                setDropdownOpen(false);
+            };
+        };
+
+        window.addEventListener("mousedown", handleOutsideClick);
+
+        return () => {
+            window.removeEventListener("mousedown", handleOutsideClick);
+        };
+    }, [setDropdownOpen]);
+
     return (
         <div className="static xl:relative">
             <div
@@ -22,7 +38,7 @@ export default function HeaderProfile() {
                     if (session === null) {
                         await signIn();
                     } else {
-                        setHeaderDropdownOpen(!headerDropdownOpen);
+                        setDropdownOpen(!dropdownOpen);
                     }
                 }}
             >
@@ -39,12 +55,23 @@ export default function HeaderProfile() {
             </div>
             <div
                 className="grid place-items-center lg:hidden fill-zinc-700 dark:fill-zinc-200 cursor-pointer"
-                onClick={()=>setHeaderDropdownOpen(!headerDropdownOpen)}
+                onClick={async () => {
+                    if (session === null) {
+                        await signIn();
+                    } else {
+                        setDropdownOpen(!dropdownOpen);
+                    }
+                }}
             >
+                {session ? 
                 <svg width="24" height="24" aria-hidden="true"><path d="M12 6v.01M12 12v.01M12 18v.01M12 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path></svg>
+                : <p>Log in</p>}
             </div>
-            {session && headerDropdownOpen && 
+            {session && dropdownOpen && 
             <Dropdown 
+                ref={ref} 
+                state={dropdownOpen}
+                setState={setDropdownOpen}
                 links={[
                     [
                         {
@@ -82,7 +109,7 @@ export default function HeaderProfile() {
                             onClick: () => signOut()
                         }
                     ]
-                ]} text={""}          
+                ]}
             />}
         </div>
     );
