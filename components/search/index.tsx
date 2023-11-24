@@ -6,7 +6,7 @@ export default function Search() {
     return (
         <>
             <svg
-                className="h-4/6 aspect-square cursor-pointer fill-zinc-700/50 hover:fill-zinc-500 dark:fill-zinc-200/50 hover:dark:fill-zinc-300 hover:scale-110 transition-transform"
+                className="h-4/6 aspect-square cursor-pointer fill-zinc-700/50 hover:fill-zinc-500 dark:fill-zinc-200/50 hover:dark:fill-zinc-300 transition-colors"
                 onClick={() => setSearchMenuOpen(!searchMenuOpen)}
                 viewBox="0 0 512 512"
             >
