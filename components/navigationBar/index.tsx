@@ -27,7 +27,7 @@ export default function RootHeader() {
                     <Link href={"/"} className={`hover:text-zinc-500 hover:dark:text-zinc-300 transition-colors`}>Link7</Link>
                 </nav>
             </div>
-            <div className="flex items-center h-full relative space-x-3">
+            <div className="flex items-center h-full space-x-3 ml-0">
                 <Search />
                 <Notifications />
                 <Profile />
