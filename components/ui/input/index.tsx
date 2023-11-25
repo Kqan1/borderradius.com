@@ -4,19 +4,22 @@ import { VariantProps, cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const inputVariants = cva(
-    "pl-1 peer"
+    "p-2 peer text-zinc-700 dark:text-zinc-200"
     , {
     variants: {
         variant: {
             default:
                 "rounded border outline-none bg-transparent border-zinc-900/60 dark:border-zinc-50/20",
             light: 
-                "rounded border-2 outline-none bg-transparent border-zinc-900/20 dark:border-zinc-50/30"
+                "rounded border-2 outline-none bg-transparent border-zinc-900/20 dark:border-zinc-50/30",
+            borderless: 
+                "outline-none bg-transparent",
         },
         Size: {
             default: "w-64 h-10",
             full: "w-full h-10",
             thin: "w-full h-7",
+            xl: "w-full h-auto text-2xl",
         },
     },
     defaultVariants: {
@@ -38,7 +41,10 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
                     className={cn(inputVariants({ variant, Size, className }))}
                     {...props}
                 />
-                <label className={"absolute left-2 top-1/2 px-1 pointer-events-none text-zinc-700 dark:text-zinc-200 bg-white dark:bg-transparent -translate-y-[110%] peer-placeholder-shown:-translate-y-1/3 transition-all"}>{LabelText}</label>
+                {LabelText ?
+                    <label className={"absolute left-2 top-1/2 px-1 pointer-events-none text-zinc-700 dark:text-zinc-200 bg-white dark:bg-transparent -translate-y-[110%] peer-placeholder-shown:-translate-y-1/3 transition-all"}>{LabelText}</label>
+                    : null
+                }
             </div>
         );
     }

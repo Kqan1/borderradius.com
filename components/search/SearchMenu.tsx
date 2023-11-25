@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { Input } from "@/components/ui/input";
 
 const SearchMenu = forwardRef<HTMLDivElement>((props, ref) => {
     return (
@@ -10,7 +11,7 @@ const SearchMenu = forwardRef<HTMLDivElement>((props, ref) => {
                     {/* 2 vertical parts */}
                 
                     <div className="h-1/6 rounded bg-zinc-200 border-2 border-zinc-500/70">
-                        test1
+                        <Input variant={"borderless"} Size={"xl"} />
                     </div>
                     
                     <div className="h-[calc(83.333333%-1rem)] rounded bg-zinc-200 border-2 border-zinc-500/70">
