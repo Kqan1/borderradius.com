@@ -2,7 +2,6 @@
 const nextConfig = {
     productionBrowserSourceMaps: false,
     reactStrictMode: false,
-    output: "export"
 };
 
 module.exports = nextConfig;
