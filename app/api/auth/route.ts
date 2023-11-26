@@ -1,8 +1,8 @@
 import { getServerSession } from 'next-auth/next';
 import { NextResponse } from 'next/server';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { generateStaticParams } from '@/app/api/auth/[...nextauth]/route';
 
 export async function GET(request: Request) {
-    const session = await getServerSession(authOptions);
+    const session = await getServerSession(generateStaticParams());
     return NextResponse.json({ authenticated: !!session });
 };
