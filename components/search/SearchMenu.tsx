@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
 import { Input } from "@/components/ui/input";
+import { InputWrapper } from "@/components/ui/input/wrapper";
 
 const SearchMenu = forwardRef<HTMLDivElement>((props, ref) => {
     return (
@@ -9,18 +10,22 @@ const SearchMenu = forwardRef<HTMLDivElement>((props, ref) => {
                 {/* 2 horizontonal Parts */}
                 <div className="h-full w-4/12 space-y-4">
                     {/* 2 vertical parts */}
-                
-                    <div className="h-1/6 rounded bg-zinc-200 border-2 border-zinc-500/70">
-                        <Input variant={"borderless"} Size={"xl"} />
-                    </div>
+
+                    <InputWrapper className="py-3" >
+                        <Input 
+                            variant="ghost" 
+                            Size="xl"
+                            placeholder="Search"
+                        />
+                    </InputWrapper>
                     
-                    <div className="h-[calc(83.333333%-1rem)] rounded bg-zinc-200 border-2 border-zinc-500/70">
+                    <div className="h-[calc(100%-5.75rem)] rounded bg-white border-2 border-zinc-500/70">
                         test2
                     </div>
                 
                 </div>
                 
-                <div className="h-full w-8/12 rounded bg-zinc-200 border-2 border-zinc-500/70">
+                <div className="h-full w-8/12 rounded bg-white border-2 border-zinc-500/70">
                     test3
                 </div>
             

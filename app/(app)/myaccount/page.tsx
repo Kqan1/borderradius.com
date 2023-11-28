@@ -1,11 +1,10 @@
-// import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { generateStaticParams } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 import Image from "next/image";
 
 export default async function myaccound() {
 
-    const session = await getServerSession(generateStaticParams());
+    const session = await getServerSession(authOptions);
 
     const pp = session?.user?.pp ?? "/pp.svg";
     const ppalt = session?.user?.username ?? "cannot find the image";

@@ -6,6 +6,8 @@ import { useState } from "react";
 
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { InputWrapper } from "@/components/ui/input/wrapper";
+import { Label } from "@/components/ui/input/label";
 
 export const LoginForm = () => {
     const router = useRouter();
@@ -41,28 +43,33 @@ export const LoginForm = () => {
             onSubmit={onSubmit}
             className="flex flex-col justify-center h-full w-full px-8 space-y-3"
         >
-            <Input 
-                variant={"default"} 
-                Size={"full"} 
-                type="email"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-                placeholder=""
-                required
-                LabelText="email"
-            />
+            <InputWrapper variant="label" >
+                <Input 
+                    variant={"default"} 
+                    Size={"default"} 
+                    type="email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
+                    placeholder=""
+                    required
+                    autoComplete=""
+                />
+                <Label>Email</Label>
+            </InputWrapper>
 
-            <Input 
-                variant={"default"} 
-                Size={"full"} 
-                type="password"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-                placeholder=""
-                required
-                autoComplete=""
-                LabelText="password"
-            />
+            <InputWrapper variant="label" >
+                <Input 
+                    variant={"default"} 
+                    Size={"default"} 
+                    type="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                    value={password}
+                    placeholder=""
+                    required
+                    autoComplete=""
+                />
+                <Label>password</Label>
+            </InputWrapper>
 
             <Button type="submit">Submit</Button>
             <Button variant={"destructive"}>Log in with Google</Button>

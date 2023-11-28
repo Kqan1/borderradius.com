@@ -4,22 +4,21 @@ import { VariantProps, cva } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const inputVariants = cva(
-    "p-2 peer text-zinc-700 dark:text-zinc-200"
+    "peer p-2 placeholder:px-1 placeholder:font-semibold placeholder-zinc-700/80 text-zinc-700 dark:text-zinc-200"
     , {
     variants: {
         variant: {
             default:
                 "rounded border outline-none bg-transparent border-zinc-900/60 dark:border-zinc-50/20",
-            light: 
+            light:
                 "rounded border-2 outline-none bg-transparent border-zinc-900/20 dark:border-zinc-50/30",
-            borderless: 
+            ghost: 
                 "outline-none bg-transparent",
         },
         Size: {
-            default: "w-64 h-10",
-            full: "w-full h-10",
+            default: "w-full h-10",
             thin: "w-full h-7",
-            xl: "w-full h-auto text-2xl",
+            xl: "w-full h-auto text-2xl px-4",
         },
     },
     defaultVariants: {
@@ -28,24 +27,17 @@ const inputVariants = cva(
     },
 });
 
-export interface InputProps extends InputHTMLAttributes<HTMLInputElement>, VariantProps<typeof inputVariants> {
-    LabelText?: string;
-}
+export interface InputProps extends InputHTMLAttributes<HTMLInputElement>, VariantProps<typeof inputVariants> {}
 
 const Input = forwardRef<HTMLInputElement, InputProps>(
-    ({ className, children, variant, Size, LabelText, ...props }, ref) => {
+    ({ className, children, variant, Size, ...props }, ref) => {
 
         return (
-            <div className={`relative font-normal ${LabelText ? "pt-2" : ""}`} ref={ref}>
-                <input
-                    className={cn(inputVariants({ variant, Size, className }))}
-                    {...props}
-                />
-                {LabelText ?
-                    <label className={"absolute left-2 top-1/2 px-1 pointer-events-none text-zinc-700 dark:text-zinc-200 bg-white dark:bg-transparent -translate-y-[110%] peer-placeholder-shown:-translate-y-1/3 transition-all"}>{LabelText}</label>
-                    : null
-                }
-            </div>
+            <input
+                className={cn(inputVariants({ variant, Size, className }))}
+                ref={ref}
+                {...props}
+            />
         );
     }
 );
